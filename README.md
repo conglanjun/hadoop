@@ -18,6 +18,7 @@ service network restart
 yum install -y vim net-tools
 ```
 - clone虚拟机node02，node03
+
 |IP|主机名|
 |----|-----|
 |192.168.150.100|node01|
