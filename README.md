@@ -24,3 +24,41 @@ yum install -y vim net-tools
 |192.168.150.100|node01|
 |192.168.150.101|node02|
 |192.168.150.102|node03|
+
+```shell
+vi /etc/sysconfig/network-scripts/ifcfg-ens33
+
+#配置mac地址。查看vm中网络配置高级中mac地址
+HWADDR=00:0C:29:95:24:41
+...
+BOOTPROTO=static
+BROADCAST=192.168.150.255
+IPADDR=192.168.150.100
+NETMASK=255.255.255.0
+GATEWAY=192.168.150.2
+
+node01 02 03都要配置MAC地址。
+
+# 配置网络，MAC地址，静态IP
+vim /etc/sysconfig/network-scripts/ifcfg-ens33
+HWADDR=00:0C:29:95:24:41
+TYPE=Ethernet
+PROXY_METHOD=none
+BROWSER_ONLY=no
+BOOTPROTO=static
+BROADCAST=192.168.150.255
+IPADDR=192.168.150.100
+NETMASK=255.255.255.0
+GATEWAY=192.168.150.2
+DEFROUTE=yes
+IPV4_FAILURE_FATAL=no
+IPV6INIT=yes
+IPV6_AUTOCONF=yes
+IPV6_DEFROUTE=yes
+IPV6_FAILURE_FATAL=no
+IPV6_ADDR_GEN_MODE=stable-privacy
+NAME=ens33
+UUID=3395b089-ab8f-48a9-8716-2837dba693c2
+DEVICE=ens33
+ONBOOT=yes
+```
